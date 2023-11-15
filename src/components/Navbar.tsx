@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import { FC, useEffect, useState } from 'react'
 import { IoSearchSharp } from 'react-icons/io5'
+import { Link } from 'react-router-dom'
 
 const Navbar: FC = () => {
 	const [isScrolled, setIsScrolled] = useState<boolean>(false)
@@ -24,10 +25,12 @@ const Navbar: FC = () => {
 		<header
 			className={clsx(
 				isScrolled ? 'bg-[#3d175c] bg-opacity-50' : 'bg-transparent',
-				'fixed inset-x-0 top-0 flex items-center justify-between h-20 px-16 transition-all duration-500'
+				'fixed inset-x-0 top-0 flex items-center justify-between h-20 px-16 transition-all duration-500 z-[100]'
 			)}
 		>
-			<h1>WoA</h1>
+			<Link to='/'>
+				<h1>WoA</h1>
+			</Link>
 			<div className='flex items-center justify-between w-1/4 px-4 border-2 rounded-md h-11 bg-slate-700 bg-opacity-30 border-slate-700 text-slate-400'>
 				<input
 					type='text'
