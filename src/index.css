@@ -1,9 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	--navbar-height: 5rem;
+}
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Pixelify Sans', sans-serif;
+}
+
+body {
+	background-color: #0d0d0d;
+	color: #f6f6f6;
+}
+
+main {
+	margin-top: var(--navbar-height);
+	min-height: calc(100vh - var(--navbar-height));
+}
+
+h1 {
+	font-size: 2.4rem;
+	font-weight: 600;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+h3 {
+	font-size: 1.8rem;
+}
+
+h4 {
+	font-size: 1.6rem;
+}
+
+h5 {
+	font-size: 1.4rem;
+}
+
+h6 {
+	font-size: 1.2rem;
+}
+
+p,
+span {
+	font-size: 1rem;
 }
