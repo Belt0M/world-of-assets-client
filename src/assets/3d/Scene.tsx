@@ -11,8 +11,10 @@ import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useState } from 'react'
 
-export function Model(props) {
-	const { nodes, materials } = useGLTF('/scene.gltf')
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function Model(props: any) {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const { nodes, materials } = useGLTF('/scene.gltf') as any
 	const [rotation, setRotation] = useState([0, 0, 0])
 
 	useFrame(() => {
