@@ -7,7 +7,6 @@ const Navbar: FC = () => {
 	const [isScrolled, setIsScrolled] = useState<boolean>(false)
 
 	const changeNavbarColor = () => {
-		console.log(window.scrollY, window.scrollY >= 0)
 		if (window.scrollY > 0) {
 			setIsScrolled(true)
 		} else {
