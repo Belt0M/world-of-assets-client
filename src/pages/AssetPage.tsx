@@ -1,5 +1,4 @@
 import { FC, useCallback, useEffect, useState } from 'react'
-import { FaHeart } from 'react-icons/fa'
 import { FiZoomIn } from 'react-icons/fi'
 import { useParams } from 'react-router-dom'
 import { assetsData } from '../data/asset.data'
@@ -7,13 +6,13 @@ import { assetsData } from '../data/asset.data'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import AssetDescription from '../components/AssetDescription'
 import GallerySlider from '../components/GallerySlider'
 import ZoomedSlider from '../components/ZoomedSlider'
 
 const AssetPage: FC = () => {
 	const { id: assetId } = useParams()
-	const { title, images, likesCount, price } =
-		assetsData[parseInt(assetId!) - 1]
+	const { images } = assetsData[parseInt(assetId!) - 1]
 	const [selectedImage, setSelectedImage] = useState<string>(images[0])
 	const [isZoomed, setIsZoomed] = useState<boolean>(false)
 
@@ -43,7 +42,7 @@ const AssetPage: FC = () => {
 	return (
 		<main className='px-16 py-12'>
 			<section className='h-[35rem] flex justify-between gap-6'>
-				<div className='h-full w-3/5 rounded-2xl bg-[#1d232a] bg-opacity-80 p-4'>
+				<div className='w-3/5 h-full p-4 rounded-2xl bg-secondary bg-opacity-80'>
 					<div
 						style={{ backgroundImage: `url(${selectedImage})` }}
 						className='w-full overflow-hidden bg-center bg-no-repeat bg-cover h-4/5 rounded-2xl group'
@@ -61,19 +60,11 @@ const AssetPage: FC = () => {
 						/>
 					</div>
 				</div>
-				<div className='w-2/5 rounded-2xl bg-[#1d232a] bg-opacity-80 p-4'>
-					<h6 className='px-1 mt-6'>
-						{title.length > 20 ? title.slice(0, 21) + '...' : title}
-					</h6>
-					<div className='flex items-center justify-between px-1 mt-2'>
-						<span className='font-mono font-bold'>{price} $</span>
-						<span className='flex items-center'>
-							<FaHeart className='mr-1 text-lg text-red-500 transition-all cursor-pointer hover:scale-110' />
-							{likesCount}
-						</span>
-					</div>
+				<div className='flex flex-col justify-between w-2/5 px-5 py-6 rounded-2xl bg-opacity-80'>
+					<AssetDescription asset={assetsData[parseInt(assetId!) - 1]} />
 				</div>
 			</section>
+			{/* On the image zoom */}
 			{isZoomed && (
 				<ZoomedSlider
 					setIsZoomed={setIsZoomed}

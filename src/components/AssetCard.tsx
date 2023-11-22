@@ -48,14 +48,14 @@ const AssetCard: FC<Props> = ({ asset }) => {
 					<FaRegEye className='text-3xl transition-all duration-300 hover:scale-110' />
 				</Link>
 			</div>
-			<h6 className='mt-3'>
+			<h6 className='mt-3 font-sub'>
 				{asset.title.length > 20
 					? asset.title.slice(0, 20) + '...'
 					: asset.title}
 			</h6>
 			<div className='flex items-center justify-between mt-2 '>
-				<span className='font-mono font-bold'>{asset.price} $</span>
-				<span className='flex items-center'>
+				<span className='font-bold font-sub'>{asset.price} $</span>
+				<span className='flex items-center font-sub'>
 					<FaHeart className='mr-1 text-lg text-red-500 transition-all cursor-pointer hover:scale-110' />
 					{asset.likesCount}
 				</span>

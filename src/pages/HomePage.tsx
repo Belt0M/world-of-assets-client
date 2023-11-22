@@ -40,7 +40,7 @@ const HomePage: FC = () => {
 				<Island3D />
 			</section>
 			<section className='mt-12 pl-44'>
-				<h2>Trends: </h2>
+				<h2 className='font-sub'>Trends: </h2>
 				<div className='flex gap-10 mt-6'>
 					<Swiper
 						slidesPerView={3.5}
@@ -58,7 +58,7 @@ const HomePage: FC = () => {
 				</div>
 			</section>
 			<section className='mt-6 pl-44'>
-				<h2 className='pl-20'>New: </h2>
+				<h2 className='pl-20 font-sub'>New: </h2>
 				<div className='flex gap-10 pl-20 mt-6'>
 					<Swiper
 						slidesPerView={3}
@@ -77,7 +77,7 @@ const HomePage: FC = () => {
 			</section>
 			{recentAssets.length > 0 && (
 				<section className='mt-6 pl-44'>
-					<h2>Recently viewed: </h2>
+					<h2 className='font-sub'>Recently viewed: </h2>
 					<div className='flex gap-10 mt-6'>
 						<Swiper
 							slidesPerView={3.5}

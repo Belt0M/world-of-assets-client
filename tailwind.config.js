@@ -4,8 +4,14 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				dark: '#0d0d0d',
+				dark: '#121212',
 				white: '#f6f6f6',
+			},
+			fontFamily: {
+				sub: 'Pixelify Sans, sans-serif',
+			},
+			backgroundColor: {
+				secondary: '#1d232a',
 			},
 		},
 	},

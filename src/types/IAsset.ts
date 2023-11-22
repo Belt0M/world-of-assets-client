@@ -10,4 +10,6 @@ export interface IAsset {
 	keywords?: string[]
 	author?: string
 	category?: string
+	rating: number
+	reviews: string[]
 }
