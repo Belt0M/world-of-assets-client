@@ -1,21 +1,44 @@
-import { FC, useState } from 'react'
+import { FC, useCallback, useEffect, useState } from 'react'
 import { FaHeart } from 'react-icons/fa'
-import { MdOpenInNew } from 'react-icons/md'
+import { FiZoomIn } from 'react-icons/fi'
 import { useParams } from 'react-router-dom'
-import { Navigation, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
 import { assetsData } from '../data/asset.data'
 
-import clsx from 'clsx'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import GallerySlider from '../components/GallerySlider'
+import ZoomedSlider from '../components/ZoomedSlider'
 
 const AssetPage: FC = () => {
 	const { id: assetId } = useParams()
 	const { title, images, likesCount, price } =
 		assetsData[parseInt(assetId!) - 1]
 	const [selectedImage, setSelectedImage] = useState<string>(images[0])
+	const [isZoomed, setIsZoomed] = useState<boolean>(false)
+
+	// Sort the images for zoomed slider
+	let assetsForZoomed: string[] = []
+	if (isZoomed) {
+		assetsForZoomed = [...images]
+		assetsForZoomed.splice(assetsForZoomed.indexOf(selectedImage), 1)
+		assetsForZoomed.unshift(selectedImage)
+	}
+
+	// Close fullscreen slider on Esc press
+	const escFunction = useCallback((event: KeyboardEvent) => {
+		if (event.key === 'Escape') {
+			setIsZoomed(false)
+		}
+	}, [])
+
+	useEffect(() => {
+		document.addEventListener('keydown', escFunction, false)
+
+		return () => {
+			document.removeEventListener('keydown', escFunction, false)
+		}
+	}, [escFunction])
 
 	return (
 		<main className='px-16 py-12'>
@@ -23,34 +46,19 @@ const AssetPage: FC = () => {
 				<div className='h-full w-3/5 rounded-2xl bg-[#1d232a] bg-opacity-80 p-4'>
 					<div
 						style={{ backgroundImage: `url(${selectedImage})` }}
-						className='w-full overflow-hidden bg-no-repeat bg-cover h-4/5 rounded-2xl group'
+						className='w-full overflow-hidden bg-center bg-no-repeat bg-cover h-4/5 rounded-2xl group'
+						onClick={() => setIsZoomed(true)}
 					>
 						<div className='flex flex-col items-center justify-center w-full h-full gap-2 transition-all duration-300 opacity-0 cursor-pointer bg-opacity-60 bg-dark group-hover:opacity-100'>
-							<MdOpenInNew className='text-3xl transition-all duration-300 hover:scale-110' />
+							<FiZoomIn className='text-3xl' />
 						</div>
 					</div>
 					<div className='mt-3'>
-						<Swiper
-							modules={[Navigation, Pagination]}
-							slidesPerView={4.3}
-							spaceBetween={15}
-							navigation={true}
-						>
-							{images.map(img => (
-								<SwiperSlide
-									key={img}
-									onClick={() => setSelectedImage(img)}
-									className={clsx(
-										selectedImage === img
-											? 'opacity-100'
-											: 'opacity-40 hover:opacity-100 transition-all duration-150',
-										'cursor-pointer'
-									)}
-								>
-									<img src={img} />
-								</SwiperSlide>
-							))}
-						</Swiper>
+						<GallerySlider
+							setSelectedImage={setSelectedImage}
+							selectedImage={selectedImage}
+							images={images}
+						/>
 					</div>
 				</div>
 				<div className='w-2/5 rounded-2xl bg-[#1d232a] bg-opacity-80 p-4'>
@@ -66,6 +74,12 @@ const AssetPage: FC = () => {
 					</div>
 				</div>
 			</section>
+			{isZoomed && (
+				<ZoomedSlider
+					setIsZoomed={setIsZoomed}
+					assetsForZoomed={assetsForZoomed}
+				/>
+			)}
 		</main>
 	)
 }

@@ -46,9 +46,6 @@ const HomePage: FC = () => {
 						slidesPerView={3.5}
 						spaceBetween={30}
 						freeMode={true}
-						pagination={{
-							clickable: true,
-						}}
 						modules={[FreeMode, Pagination]}
 						className='flex w-[110%] overflow-hidden mySwiper'
 					>
@@ -67,9 +64,6 @@ const HomePage: FC = () => {
 						slidesPerView={3}
 						spaceBetween={30}
 						freeMode={true}
-						pagination={{
-							clickable: true,
-						}}
 						modules={[FreeMode, Pagination]}
 						className='flex w-[110%] overflow-hidden mySwiper'
 					>
@@ -89,9 +83,6 @@ const HomePage: FC = () => {
 							slidesPerView={3.5}
 							spaceBetween={30}
 							freeMode={true}
-							pagination={{
-								clickable: true,
-							}}
 							modules={[FreeMode, Pagination]}
 							className='flex w-[110%] overflow-hidden mySwiper'
 						>

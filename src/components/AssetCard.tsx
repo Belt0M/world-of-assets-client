@@ -9,6 +9,7 @@ interface Props {
 }
 
 const AssetCard: FC<Props> = ({ asset }) => {
+	console.log(asset)
 	// Add asset onClick to localStorage
 	const handleClick = (asset: IAsset) => {
 		let assets: IAsset[] = []
