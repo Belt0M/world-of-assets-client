@@ -36,7 +36,7 @@ const AssetCard: FC<Props> = ({ asset }) => {
 	return (
 		<div className='h-80 w-[25rem] rounded-3xl bg-[#1d232a] bg-opacity-80 p-4'>
 			<div
-				style={{ backgroundImage: `url(${asset.img})` }}
+				style={{ backgroundImage: `url(${asset.images[0]})` }}
 				className='w-full overflow-hidden bg-no-repeat bg-cover h-3/4 rounded-3xl group'
 			>
 				<Link

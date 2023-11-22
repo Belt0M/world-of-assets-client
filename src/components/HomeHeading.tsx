@@ -11,7 +11,7 @@ const HomeHeading: FC = () => {
 				,
 				<br />
 				<span className='text-4xl text-green-500'>buy</span> and{' '}
-				<span className='text-4xl text-red-500'>sell </span>
+				<span className='text-4xl text-yellow-500'>sell </span>
 				them here
 			</h1>
 			<p className='mt-8 text-gray-400'>
