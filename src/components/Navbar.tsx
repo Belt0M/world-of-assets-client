@@ -28,12 +28,12 @@ const Navbar: FC = () => {
 			)}
 		>
 			<Link to='/'>
-				<h1>WoA</h1>
+				<h1 className='text-white font-sub'>WoA</h1>
 			</Link>
 			<div className='flex items-center justify-between w-1/4 px-4 border-2 rounded-md h-11 bg-slate-700 bg-opacity-30 border-slate-700 text-slate-400'>
 				<input
 					type='text'
-					className='w-5/6 h-full bg-transparent focus:outline-none caret-slate-400'
+					className='w-5/6 h-full bg-transparent focus:outline-none caret-slate-400 font-sub'
 					placeholder='Search...	'
 				/>
 				<IoSearchSharp className='text-lg' />
@@ -41,7 +41,7 @@ const Navbar: FC = () => {
 			<div className='w-32 p-0.5 pt-[.15rem] rounded-md h-11 bg-gradient-to-r from-violet-500 to-pink-700'>
 				<button
 					type='button'
-					className='w-full h-full transition-all rounded-md bg-dark hover:bg-transparent'
+					className='w-full h-full transition-all rounded-md bg-dark hover:bg-transparent font-sub'
 				>
 					Sign Up
 				</button>
