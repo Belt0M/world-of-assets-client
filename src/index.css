@@ -52,8 +52,18 @@ h6 {
 }
 
 p,
-span {
-	font-size: 1rem;
+span,
+li {
+	font-size: 0.9rem;
+}
+
+a {
+	color: #976ef6;
+}
+
+li {
+	list-style: disc;
+	margin-left: 2rem;
 }
 
 /* Swiper */

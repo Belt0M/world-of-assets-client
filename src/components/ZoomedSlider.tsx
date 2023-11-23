@@ -17,7 +17,7 @@ const ZoomedSlider: FC<Props> = ({ assetsForZoomed, setIsZoomed }) => {
 			mousewheel={true}
 			keyboard={true}
 			modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-			className='absolute inset-0 z-[100] h-screen'
+			className='fixed inset-0 z-[100] h-screen'
 		>
 			{assetsForZoomed.map(img => (
 				<SwiperSlide

@@ -28,7 +28,7 @@ const Navbar: FC = () => {
 			)}
 		>
 			<Link to='/'>
-				<h1 className='font-sub'>WoA</h1>
+				<h1 className='text-white font-sub'>WoA</h1>
 			</Link>
 			<div className='flex items-center justify-between w-1/4 px-4 border-2 rounded-md h-11 bg-slate-700 bg-opacity-30 border-slate-700 text-slate-400'>
 				<input

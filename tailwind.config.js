@@ -6,12 +6,11 @@ export default {
 			colors: {
 				dark: '#121212',
 				white: '#f6f6f6',
+				secondary: '#1d232a',
+				darkGray: '#8b8f92',
 			},
 			fontFamily: {
 				sub: 'Pixelify Sans, sans-serif',
-			},
-			backgroundColor: {
-				secondary: '#1d232a',
 			},
 		},
 	},

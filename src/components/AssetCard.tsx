@@ -45,7 +45,7 @@ const AssetCard: FC<Props> = ({ asset }) => {
 					className='flex flex-col items-center justify-center w-full h-full gap-2 transition-all duration-300 origin-left scale-x-0 opacity-0 cursor-pointer bg-opacity-60 bg-dark group-hover:opacity-100 group-hover:scale-x-100'
 					onClick={() => handleClick(asset)}
 				>
-					<FaRegEye className='text-3xl transition-all duration-300 hover:scale-110' />
+					<FaRegEye className='text-3xl text-white transition-all duration-300 hover:scale-110' />
 				</Link>
 			</div>
 			<h6 className='mt-3 font-sub'>
