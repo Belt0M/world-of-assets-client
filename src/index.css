@@ -61,6 +61,10 @@ a {
 	color: #976ef6;
 }
 
+a:hover {
+	color: #8e5ffd;
+}
+
 li {
 	list-style: disc;
 	margin-left: 2rem;

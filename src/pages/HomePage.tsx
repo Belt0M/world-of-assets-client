@@ -1,10 +1,8 @@
 import { FC, useEffect, useState } from 'react'
-import { FreeMode, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import AssetCard from '../components/AssetCard'
 import HomeHeading from '../components/HomeHeading'
 import Island3D from '../components/IslandCanvas'
 import Loader from '../components/Loader'
+import Slider from '../components/Slider'
 import { assetsData } from '../data/asset.data'
 import { IAsset } from '../types/IAsset'
 
@@ -12,14 +10,16 @@ const HomePage: FC = () => {
 	// The state flag for page loader
 	const [isLoading, setIsLoading] = useState<boolean>(true)
 	// Recently viewed assets, received from localStorage
+	const [assets] = useState<IAsset[]>(assetsData.slice(5))
 	const [recentAssets] = useState<IAsset[]>(
 		JSON.parse(localStorage.getItem('recent_assets')!) || []
 	)
-	const [newAssets] = useState<IAsset[]>([...assetsData])
+	const [newAssets, setNewAssets] = useState<IAsset[]>([...assets])
 
 	// Show a loader for 2s
 	useEffect(() => {
 		setTimeout(() => {
+			setNewAssets(prev => prev.sort(compareIdsFn))
 			setIsLoading(false)
 		}, 1500)
 	}, [])
@@ -39,61 +39,15 @@ const HomePage: FC = () => {
 				<HomeHeading />
 				<Island3D />
 			</section>
-			<section className='mt-12 pl-44'>
-				<h2 className='font-sub'>Trends: </h2>
-				<div className='flex gap-10 mt-6'>
-					<Swiper
-						slidesPerView={3.5}
-						spaceBetween={30}
-						freeMode={true}
-						modules={[FreeMode, Pagination]}
-						className='flex w-[110%] overflow-hidden mySwiper'
-					>
-						{assetsData.map(asset => (
-							<SwiperSlide key={'Trends ' + asset.title}>
-								<AssetCard asset={asset} />
-							</SwiperSlide>
-						))}
-					</Swiper>
-				</div>
-			</section>
-			<section className='mt-6 pl-44'>
-				<h2 className='pl-20 font-sub'>New: </h2>
-				<div className='flex gap-10 pl-20 mt-6'>
-					<Swiper
-						slidesPerView={3}
-						spaceBetween={30}
-						freeMode={true}
-						modules={[FreeMode, Pagination]}
-						className='flex w-[110%] overflow-hidden mySwiper'
-					>
-						{newAssets.sort(compareIdsFn).map(asset => (
-							<SwiperSlide key={'New ' + asset.title}>
-								<AssetCard asset={asset} />
-							</SwiperSlide>
-						))}
-					</Swiper>
-				</div>
-			</section>
+			<Slider heading='Trends: ' mt='mt-12' data={assets} />
+			<Slider
+				heading='New: '
+				slidesPerView={3}
+				data={newAssets}
+				sliderPaddingLeft='pl-72	'
+			/>
 			{recentAssets.length > 0 && (
-				<section className='mt-6 pl-44'>
-					<h2 className='font-sub'>Recently viewed: </h2>
-					<div className='flex gap-10 mt-6'>
-						<Swiper
-							slidesPerView={3.5}
-							spaceBetween={30}
-							freeMode={true}
-							modules={[FreeMode, Pagination]}
-							className='flex w-[110%] overflow-hidden mySwiper'
-						>
-							{recentAssets.slice(0, 5).map((asset, index) => (
-								<SwiperSlide key={'Recent ' + asset.title + index}>
-									<AssetCard asset={asset} />
-								</SwiperSlide>
-							))}
-						</Swiper>
-					</div>
-				</section>
+				<Slider heading='Recently viewed: ' data={recentAssets} />
 			)}
 
 			{isLoading && <Loader />}
