@@ -22,7 +22,7 @@ const AssetDescription: FC<Props> = ({ asset }) => {
 		reviews,
 	} = asset
 	const [isRatingModal, setIsRatingModal] = useState<boolean>(false)
-
+	isRatingModal && console.log('m', likesCount)
 	const formattedData = useMemo(
 		() => formatIsoDate(data_modified!),
 		[data_modified]
