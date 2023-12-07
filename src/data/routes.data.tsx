@@ -20,4 +20,8 @@ export const routesData: IRoute[] = [
 		path: '/marketplace',
 		element: <MarketplacePage />,
 	},
+	{
+		path: '/marketplace/:category/:categoryName',
+		element: <MarketplacePage />,
+	},
 ]

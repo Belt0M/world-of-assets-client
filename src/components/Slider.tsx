@@ -36,7 +36,7 @@ const Slider: FC<Props> = ({
 					className='flex w-[110%] overflow-hidden mySwiper'
 				>
 					{data.map(asset => (
-						<SwiperSlide key={'Trends ' + asset.title}>
+						<SwiperSlide key={'Heading ' + asset.title + asset.id}>
 							<AssetCard asset={asset} />
 						</SwiperSlide>
 					))}
