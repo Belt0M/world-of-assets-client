@@ -12,4 +12,5 @@ export interface IAsset {
 	category?: string
 	rating: number
 	reviews: string[]
+	platforms: string[]
 }

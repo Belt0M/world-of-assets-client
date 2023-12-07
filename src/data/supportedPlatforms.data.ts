@@ -1,0 +1,16 @@
+export const supportedPlatformsData: string[] = [
+	'Android',
+	'Gear VR',
+	'HoloLens2',
+	'HTML5',
+	'iOS',
+	'Linux',
+	'MacOS',
+	'Nintendo Switch',
+	'Oculus',
+	'PlayStation4',
+	'Steam VR',
+	'Windows 32-bit',
+	'Windows 64-bit',
+	'Xbox One',
+]
