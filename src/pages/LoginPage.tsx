@@ -1,9 +1,12 @@
 import React, { FC, FormEvent } from 'react'
 import { FaLock, FaUser } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
+import { useAppDispatch } from '../hooks/redux'
+import { logIn } from '../store/reducers/AuthSlice'
 
 const LoginPage: FC = () => {
 	const navigate = useNavigate()
+	const dispatch = useAppDispatch()
 
 	React.useEffect(() => {
 		document.body.classList.add('centered-page-body')
@@ -14,7 +17,7 @@ const LoginPage: FC = () => {
 
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault()
-		alert('f')
+		dispatch(logIn({ userId: 1, accessToken: '' }))
 		navigate('/')
 	}
 
