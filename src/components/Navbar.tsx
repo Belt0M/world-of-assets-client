@@ -2,9 +2,13 @@ import clsx from 'clsx'
 import { FC, useEffect, useState } from 'react'
 import { IoSearchSharp } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
+import DropDownProfile from './DropDownProfile'
 
 const Navbar: FC = () => {
 	const [isScrolled, setIsScrolled] = useState<boolean>(false)
+	const [showSignUp, setShowSignUp] = useState<boolean>(false);
+	const [openProfile,setOpenProfile] = useState<boolean>(false);
+
 
 	const changeNavbarColor = () => {
 		if (window.scrollY > 0) {
@@ -14,6 +18,11 @@ const Navbar: FC = () => {
 		}
 	}
 
+
+	const handleLogoutClick = () => {
+        setShowSignUp(true);
+    };
+	
 	useEffect(() => {
 		window.addEventListener('scroll', changeNavbarColor)
 
@@ -38,14 +47,23 @@ const Navbar: FC = () => {
 				/>
 				<IoSearchSharp className='text-lg' />
 			</div>
-			<div className='w-32 p-0.5 pt-[.15rem] rounded-md h-11 bg-gradient-to-r from-violet-500 to-pink-700'>
+			{showSignUp ? (
+			<Link to="/login">
+			<div className="w-32 p-0.5 pt-[.15rem] rounded-md h-11 bg-gradient-to-r from-violet-500 to-pink-700">
 				<button
-					type='button'
-					className='w-full h-full transition-all rounded-md bg-dark hover:bg-transparent font-sub'
+				type="button"
+				className="w-full h-full transition-all rounded-md bg-dark hover:bg-transparent font-sub"
 				>
-					Sign Up
+				Sign Up
 				</button>
 			</div>
+			</Link>) : 
+			(
+			<div>
+			<span className='accountName' onClick={() => setOpenProfile((prev) => !prev)}>JohnSmith</span>
+                {openProfile && <DropDownProfile onLogoutClick={handleLogoutClick} />}
+			</div>
+			)}
 		</header>
 	)
 }
