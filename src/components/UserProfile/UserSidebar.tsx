@@ -40,12 +40,12 @@ const UserSidebar: React.FC<UserSidebarProps> = ({activepage}) => {
           <Link to='/user/accountsettings' className='stylenone'><div className='s1'><CiSettings /><span>Account Settings</span></div></Link>
         }
 
-        {
+        {/*
           activepage === 'logout' ? 
           <div className='s2'><CiLogout /><span>Logout</span></div>
           :
           <Link to='/user/logout' className='stylenone'><div className='s1'><CiLogout /><span>Logout</span></div></Link>
-        }
+      */}
       </div>
 
     </div>

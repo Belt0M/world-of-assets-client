@@ -12,7 +12,7 @@ const DropDownProfile: FC<DropDownProfileProps> = ({ onLogoutClick }) => {
     return (
         <div className='flex flex-col dropDownProfile'>
             <ul className='flex flex-col gap-2 list-none'>
-                <li className='account-li'> <Link to='/account'> <FaUser className='icon'/>Profile</Link></li>
+                <li className='account-li'> <Link to='/user/profile'> <FaUser className='icon'/>Profile</Link></li>
                 <li className='account-li'><IoSettingsOutline className='icon'/>Settings</li>
                 <li className='account-li' onClick={onLogoutClick}><CiLogout className='icon'/>Logout</li>
             </ul>
