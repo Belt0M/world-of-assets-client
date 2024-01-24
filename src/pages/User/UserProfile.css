@@ -1,0 +1,36 @@
+
+.center-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh; /* Optional: Adjust the height as needed */
+  }
+
+.userprofile{
+    display: flex;
+    flex-direction: column;
+    width: 1450px;
+}
+
+.userprofilein{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 4px;
+}
+
+.userprofile .userprofilein .left {
+    width: 20%;
+    background-color: rgb(50, 50, 50);
+    border: 1px solid rbg(207,207,207);
+    border-radius: 5px;
+    min-height: 50vh;
+}
+.userprofile .userprofilein .right {
+    width: 60%;
+    background-color: rgb(50, 50, 50);
+    border: 1px solid rbg(207,207,207);
+    border-radius: 5px;
+    min-height: 50vh;
+}

@@ -185,7 +185,7 @@ li {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
 	font-size: 16px;
-	color: black;
+	color: rgb(30, 29, 29);
 	font-weight: 700;
 }
 .wrapper .register-link {
@@ -255,3 +255,11 @@ li {
 	border-radius: 10px;
 	background-image: linear-gradient(to top, #f229c3 28%, #7518d9 84%);
 }
+
+.password-requirements {
+	display: none;
+  }
+  
+  .password-requirements.visible {
+	display: block;
+  }

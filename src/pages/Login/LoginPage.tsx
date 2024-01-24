@@ -1,8 +1,8 @@
 import React, { FC, FormEvent } from 'react'
 import { FaLock, FaUser } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../hooks/redux'
-import { logIn } from '../store/reducers/AuthSlice'
+import { useAppDispatch } from '../../hooks/redux'
+import { logIn } from '../../store/reducers/AuthSlice'
 
 const LoginPage: FC = () => {
 	const navigate = useNavigate()
@@ -26,7 +26,7 @@ const LoginPage: FC = () => {
 			<form action='' onSubmit={handleSubmit}>
 				<h1>Login</h1>
 				<div className='input-box'>
-					<input type='text' placeholder='Username' required></input>
+					<input type='text' placeholder='Email' required></input>
 					<FaUser className='icon' />
 				</div>
 
@@ -40,7 +40,7 @@ const LoginPage: FC = () => {
 						<input type='checkbox' />
 						Remember me
 					</label>
-					<a href='#'>Forgot password?</a>
+					<Link to='/emailverify'>Forgot password?</Link>
 				</div>
 				<button type='submit'>Login</button>
 
