@@ -27,6 +27,7 @@
 .yourorderstable tr {
     border: 1px solid #ddd;
     padding: .35em;
+    height: 1.3cm
 }
 
 .yourorderstable  th,

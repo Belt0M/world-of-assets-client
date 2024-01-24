@@ -1,5 +1,5 @@
 import React from 'react';
-import { CiSettings,CiLogout, CiMail, CiUser, CiShoppingCart } from "react-icons/ci";
+import { CiSettings, CiMail, CiUser, CiShoppingCart } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import './UserSidebar.css'
 
