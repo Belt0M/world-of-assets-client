@@ -1,3 +1,5 @@
+import {IReview} from './IReview'
+
 export interface IAsset {
 	id?: number
 	title: string
@@ -11,6 +13,6 @@ export interface IAsset {
 	author?: string
 	category?: string
 	rating: number
-	reviews: string[]
+	reviews?: IReview[]
 	platforms: string[]
 }

@@ -1,5 +1,5 @@
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { createListenerMiddleware, createSlice } from '@reduxjs/toolkit'
+import type {PayloadAction} from '@reduxjs/toolkit'
+import {createListenerMiddleware, createSlice} from '@reduxjs/toolkit'
 
 interface AuthState {
 	isLoggedIn: boolean
@@ -17,7 +17,7 @@ const buildInitialState = (): AuthState => {
 	const existingSession = window.localStorage.getItem('session')
 	if (!existingSession) return unauthenticatedState
 
-	const { userId, accessToken } = JSON.parse(existingSession)
+	const {userId, accessToken} = JSON.parse(existingSession)
 	if (userId === null || accessToken === null) return unauthenticatedState
 
 	return {
@@ -36,7 +36,7 @@ export const authSlice = createSlice({
 		logIn(state: AuthState, action: PayloadAction<LogInActionPayload>) {
 			state.isLoggedIn = true
 
-			const { userId, accessToken } = action.payload
+			const {userId, accessToken} = action.payload
 			state.userId = userId
 			state.accessToken = accessToken
 		},
@@ -49,16 +49,16 @@ export const authSlice = createSlice({
 	},
 })
 
-export const { logIn, logOut } = authSlice.actions
+export const {logIn, logOut} = authSlice.actions
 
 export const storeTokenOnLogin = createListenerMiddleware()
 storeTokenOnLogin.startListening({
 	actionCreator: logIn,
 	effect: (_, store) => {
-		const { userId, accessToken } = store.getState()[authSlice.name]
+		const {userId, accessToken} = store.getState()[authSlice.name]
 		window.localStorage.setItem(
 			'session',
-			JSON.stringify({ userId, accessToken })
+			JSON.stringify({userId, accessToken})
 		)
 	},
 })

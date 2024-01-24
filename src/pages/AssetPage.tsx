@@ -1,25 +1,26 @@
-import { FC, useCallback, useEffect, useMemo, useState } from 'react'
-import { FiZoomIn } from 'react-icons/fi'
-import { useParams } from 'react-router-dom'
-import { assetsData } from '../data/asset.data'
+import {FC, useCallback, useEffect, useMemo, useState} from 'react'
+import {FiZoomIn} from 'react-icons/fi'
+import {useParams} from 'react-router-dom'
+import {assetsData} from '../data/asset.data'
 
 import clsx from 'clsx'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import { FreeMode, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import {FreeMode, Pagination} from 'swiper/modules'
+import {Swiper, SwiperSlide} from 'swiper/react'
 import AssetCard from '../components/AssetCard'
 import AssetDescription from '../components/AssetDescription'
 import AssetFullDescription from '../components/AssetFullDescription'
 import GallerySlider from '../components/GallerySlider'
+import ReviewsSection from '../components/ReviewsSection'
 import ZoomedSlider from '../components/ZoomedSlider'
-import { TMode } from '../types/TMode'
+import {TMode} from '../types/TMode'
 
 const AssetPage: FC = () => {
-	const { id: assetId } = useParams()
+	const {id: assetId} = useParams()
 	const asset = assetsData[parseInt(assetId!) - 1]
-	const { images, keywords } = asset
+	const {images, keywords} = asset
 	const [selectedImage, setSelectedImage] = useState<string>(images[0])
 	const [isZoomed, setIsZoomed] = useState<boolean>(false)
 	const [selectedMode, setSelectedMode] = useState<TMode>('Description')
@@ -79,7 +80,7 @@ const AssetPage: FC = () => {
 			<section className='h-[35rem] flex justify-between gap-6'>
 				<div className='w-3/5 h-full p-4 rounded-2xl bg-secondary bg-opacity-80'>
 					<div
-						style={{ backgroundImage: `url(${selectedImage})` }}
+						style={{backgroundImage: `url(${selectedImage})`}}
 						className='w-full overflow-hidden bg-center bg-no-repeat bg-cover h-4/5 rounded-2xl group'
 						onClick={() => setIsZoomed(true)}
 					>
@@ -118,6 +119,9 @@ const AssetPage: FC = () => {
 				</div>
 				{selectedMode === 'Description' && (
 					<AssetFullDescription keywords={keywords} />
+				)}
+				{selectedMode === 'Reviews' && (
+					<ReviewsSection reviews={asset.reviews || []} />
 				)}
 			</section>
 			<section>

@@ -1,11 +1,11 @@
 import DOMPurify from 'dompurify'
-import { FC } from 'react'
+import {FC} from 'react'
 
 interface Props {
 	keywords: string[]
 }
 
-const AssetFullDescription: FC<Props> = ({ keywords }) => {
+const AssetFullDescription: FC<Props> = ({keywords}) => {
 	const fullDesc = `
 	<p>
 					Tutorial: <a href='#'>Link</a>
@@ -50,27 +50,25 @@ const AssetFullDescription: FC<Props> = ({ keywords }) => {
 				</p>`
 
 	return (
-		<>
-			<div className='p-6'>
-				<div
-					className='content'
-					dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(fullDesc) }}
-				></div>
-				<div className='mt-3'>
-					<h6 className='font-semibold'>Tags</h6>
-					<div className='flex flex-wrap gap-1 mt-2'>
-						{keywords.map(tag => (
-							<span
-								key={tag}
-								className='px-2 py-1 uppercase rounded-sm text-violet-500 bg-violet-950 bg-opacity-20'
-							>
-								{tag}
-							</span>
-						))}
-					</div>
+		<div className='p-6'>
+			<div
+				className='content'
+				dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(fullDesc)}}
+			></div>
+			<div className='mt-3'>
+				<h6 className='font-semibold'>Tags</h6>
+				<div className='flex flex-wrap gap-1 mt-2'>
+					{keywords.map(tag => (
+						<span
+							key={tag}
+							className='px-2 py-1 uppercase rounded-sm text-violet-500 bg-violet-950 bg-opacity-20'
+						>
+							{tag}
+						</span>
+					))}
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 
