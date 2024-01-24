@@ -1,22 +1,27 @@
 import Slider from '@mui/material/Slider'
 import clsx from 'clsx'
-import { useEffect, useState } from 'react'
-import { FaHeart } from 'react-icons/fa'
-import { IoSearchSharp } from 'react-icons/io5'
-import { RiArrowDropDownFill } from 'react-icons/ri'
-import { Link, useParams } from 'react-router-dom'
-import { assetsData } from '../data/asset.data'
-import { categoriesData } from '../data/categories.data'
-import { marketplaceNavData } from '../data/marketplace-nav.data'
-import { supportedPlatformsData } from '../data/supportedPlatforms.data'
+import {useEffect, useRef, useState} from 'react'
+import {FaHeart} from 'react-icons/fa'
+import {IoSearchSharp} from 'react-icons/io5'
+import {RiArrowDropDownFill} from 'react-icons/ri'
+import {Link, useParams} from 'react-router-dom'
+import {assetsData} from '../data/asset.data'
+import {categoriesData} from '../data/categories.data'
+import {marketplaceNavData} from '../data/marketplace-nav.data'
+import {supportedPlatformsData} from '../data/supportedPlatforms.data'
+import useClickOutside from '../hooks/useClickOutside'
 
 const MarketplacePage = () => {
-	const { category } = useParams()
+	const {category} = useParams()
 	const [minMaxValue, setMinMaxValue] = useState<[number, number]>([10, 1000])
 	const [keywords, setKeywords] = useState<string[]>([])
 	const [keywordValue, setKeywordValue] = useState<string>('')
 	const [platforms, setPlatforms] = useState<string[]>([])
 	const [isContext, setIsContext] = useState<boolean>(false)
+
+	const ref = useRef<HTMLUListElement>(null)
+
+	// const params = useParams()
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
@@ -75,6 +80,8 @@ const MarketplacePage = () => {
 		return result
 	}
 
+	useClickOutside(ref, setIsContext)
+
 	return (
 		<main className='p-16'>
 			<section className='flex items-center justify-between py-3 border-b border-gray-500'>
@@ -83,7 +90,7 @@ const MarketplacePage = () => {
 					{category && <span className='ml-3'>/ {category}</span>}
 				</h3>
 				<nav>
-					<ul className='relative flex'>
+					<ul className='relative flex' ref={ref}>
 						{marketplaceNavData.map(link =>
 							link !== 'Categories' ? (
 								<li key={link} className='font-semibold list-none'>
@@ -98,17 +105,14 @@ const MarketplacePage = () => {
 							) : (
 								<>
 									<li
-										key={link}
-										className='flex items-center relative font-semibold text-[#976ef6] list-none'
-										onMouseEnter={() => setIsContext(true)}
+										key={link + ' context'}
+										className='flex items-center relative font-semibold text-[#976ef6] list-none cursor-pointer'
+										onClick={() => setIsContext(prev => !prev)}
 									>
 										{link}
 										<RiArrowDropDownFill className='text-xl text-[#976ef6]' />
 										{isContext && (
-											<ul
-												className='absolute -left-12 -bottom-[6.5rem]'
-												onMouseLeave={() => setIsContext(false)}
-											>
+											<ul className='absolute right-0 top-9'>
 												{categoriesData.map(category => (
 													<li
 														key={category}
@@ -145,7 +149,7 @@ const MarketplacePage = () => {
 									<Link to={`/asset/${asset.id}`}>
 										<div
 											className='mb-2 bg-center bg-no-repeat bg-cover cursor-pointer h-60'
-											style={{ backgroundImage: `url(${asset.images[0]})` }}
+											style={{backgroundImage: `url(${asset.images[0]})`}}
 										/>
 									</Link>
 									<h6>{asset.title}</h6>

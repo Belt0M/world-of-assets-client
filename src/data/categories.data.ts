@@ -1,1 +1,6 @@
-export const categoriesData: string[] = ['Blueprints', 'Other']
+export const categoriesData: string[] = [
+	'Blueprints',
+	'Vintage',
+	'Techno',
+	'Other',
+]
