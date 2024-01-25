@@ -1,12 +1,13 @@
+import AddProductPage from '../pages/AddProductPage'
 import AssetPage from '../pages/AssetPage'
 import HomePage from '../pages/HomePage'
-import MarketplacePage from '../pages/MarketplacePage'
 import LoginPage from '../pages/Login/LoginPage'
+import PasswordEmailVerify from '../pages/Login/PasswordEmailVerificationPage'
 import RegisterPage from '../pages/Login/RegisterPage'
 import RestorePassword from '../pages/Login/RestorePasswordPage'
-import PasswordEmailVerify from '../pages/Login/PasswordEmailVerificationPage'
+import MarketplacePage from '../pages/MarketplacePage'
 import AccountSettingsPage from '../pages/User/UserProfile'
-import { IRoute } from '../types/IRoute'
+import {IRoute} from '../types/IRoute'
 
 export const routesData: IRoute[] = [
 	{
@@ -26,26 +27,30 @@ export const routesData: IRoute[] = [
 		element: <MarketplacePage />,
 	},
 	{
+		path: '/add-product',
+		element: <AddProductPage />,
+	},
+	{
 		path: '/login',
 		element: <LoginPage />,
 	},
 	{
 		path: '/register',
-		element: <RegisterPage/>,
-  },
-  {
+		element: <RegisterPage />,
+	},
+	{
 		path: '/restorepassword',
-		element: <RestorePassword/>,
-  },
-  {
-	path: '/emailverify',
-	element: <PasswordEmailVerify/>,
-  },
-  {
-	path: '/user/:activepage',
-	element: <AccountSettingsPage/>
-  },
-  {
+		element: <RestorePassword />,
+	},
+	{
+		path: '/emailverify',
+		element: <PasswordEmailVerify />,
+	},
+	{
+		path: '/user/:activepage',
+		element: <AccountSettingsPage />,
+	},
+	{
 		path: '/marketplace/:category/:categoryName',
 		element: <MarketplacePage />,
 	},

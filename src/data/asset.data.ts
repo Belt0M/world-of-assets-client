@@ -18,10 +18,10 @@ export const assetsData: IAsset[] = [
 		author: 'Belt0M',
 		data_created: '2023-11-22T19:39:26',
 		data_modified: '2023-11-22T19:39:26',
-		rating: 100,
+		rating: 5,
 		reviews: [
 			{
-				author: 'John',
+				author: 'Mark',
 				content:
 					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
@@ -30,14 +30,14 @@ export const assetsData: IAsset[] = [
 			{
 				author: 'John',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
 			{
-				author: 'John',
+				author: 'Ady',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
@@ -75,7 +75,14 @@ export const assetsData: IAsset[] = [
 		rating: 4,
 		reviews: [
 			{
-				author: 'John',
+				author: 'Mark',
+				content:
+					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and.',
+				date_created: '09.01,2024',
+				rating: 5,
+			},
+			{
+				author: 'Ady',
 				content:
 					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
@@ -84,14 +91,7 @@ export const assetsData: IAsset[] = [
 			{
 				author: 'John',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
-				date_created: '09.01,2024',
-				rating: 5,
-			},
-			{
-				author: 'John',
-				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
@@ -121,12 +121,12 @@ export const assetsData: IAsset[] = [
 		author: 'Belt0M',
 		data_created: '2023-11-22T19:39:26',
 		data_modified: '2023-11-22T19:39:26',
-		rating: 27,
+		rating: 5,
 		reviews: [
 			{
-				author: 'John',
+				author: 'Mark',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'The attention to detail is remarkable, and it seamlessly integrates into my ',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
@@ -138,7 +138,7 @@ export const assetsData: IAsset[] = [
 				rating: 5,
 			},
 			{
-				author: 'John',
+				author: 'Ady',
 				content:
 					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
@@ -173,7 +173,7 @@ export const assetsData: IAsset[] = [
 		rating: 0,
 		reviews: [
 			{
-				author: 'John',
+				author: 'Mark',
 				content:
 					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
@@ -182,14 +182,14 @@ export const assetsData: IAsset[] = [
 			{
 				author: 'John',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
 			{
-				author: 'John',
+				author: 'Ady',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'This 3D asset exceeded my expectations. The quality of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
@@ -222,9 +222,9 @@ export const assetsData: IAsset[] = [
 		rating: 4,
 		reviews: [
 			{
-				author: 'John',
+				author: 'Mark',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
@@ -236,9 +236,8 @@ export const assetsData: IAsset[] = [
 				rating: 5,
 			},
 			{
-				author: 'John',
-				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+				author: 'Ady',
+				content: 'This 3D asset exceeded my expectations.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
@@ -276,9 +275,9 @@ export const assetsData: IAsset[] = [
 		rating: 4,
 		reviews: [
 			{
-				author: 'John',
+				author: 'Mark',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
@@ -290,9 +289,9 @@ export const assetsData: IAsset[] = [
 				rating: 5,
 			},
 			{
-				author: 'John',
+				author: 'Ady',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
@@ -330,9 +329,9 @@ export const assetsData: IAsset[] = [
 		rating: 4,
 		reviews: [
 			{
-				author: 'John',
+				author: 'Mark',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
@@ -344,9 +343,9 @@ export const assetsData: IAsset[] = [
 				rating: 5,
 			},
 			{
-				author: 'John',
+				author: 'Ady',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'The quality of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
@@ -405,21 +404,20 @@ export const assetsData: IAsset[] = [
 		rating: 4,
 		reviews: [
 			{
-				author: 'John',
+				author: 'Mark',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
 			{
 				author: 'John',
-				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+				content: 'This 3D asset exceeded my expectations.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
 			{
-				author: 'John',
+				author: 'Ady',
 				content:
 					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
@@ -455,9 +453,9 @@ export const assetsData: IAsset[] = [
 		rating: 4,
 		reviews: [
 			{
-				author: 'John',
+				author: 'Mark',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'The quality of the textures and geometry is top-notch. Definitely a must-have for any 3D artist or designer.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
@@ -469,9 +467,9 @@ export const assetsData: IAsset[] = [
 				rating: 5,
 			},
 			{
-				author: 'John',
+				author: 'Ady',
 				content:
-					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects. The quality of the textures and fsageometry is top-notch. Definitely a must-have for any 3D artist or designer.',
+					'This 3D asset exceeded my expectations. The attention to detail is remarkable, and it seamlessly integrates into my projects.',
 				date_created: '09.01,2024',
 				rating: 5,
 			},
@@ -486,6 +484,7 @@ export const assetsData: IAsset[] = [
 			'DEATH',
 			'TEST',
 			'DISAPPEAR',
+			'TEST',
 		],
 		platforms: ['Android', 'Gear VR'],
 	},

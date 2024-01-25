@@ -1,6 +1,1 @@
-export const marketplaceNavData: string[] = [
-	'Home',
-	'Categories',
-	'Industries',
-	'Popularity',
-]
+export const marketplaceNavData: string[] = ['All', 'Categories', 'Popularity']

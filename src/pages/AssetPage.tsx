@@ -25,7 +25,7 @@ const AssetPage: FC = () => {
 	const [isZoomed, setIsZoomed] = useState<boolean>(false)
 	const [selectedMode, setSelectedMode] = useState<TMode>('Description')
 
-	const modes = ['Description', 'Reviews', 'Questions']
+	const modes = ['Description', 'Reviews']
 
 	// Sort assets based on related tags count
 	const getSortedByRelatedTagsAssets = useCallback(() => {

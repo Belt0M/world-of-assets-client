@@ -1,6 +1,9 @@
-import { FC } from 'react'
+import {FC} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 const HomeHeading: FC = () => {
+	const navigate = useNavigate()
+
 	return (
 		<div className='flex-[1.8] pr-44'>
 			<h1 className='font-sub'>
@@ -21,6 +24,7 @@ const HomeHeading: FC = () => {
 			</p>
 			<button
 				type='button'
+				onClick={() => navigate('/marketplace')}
 				className='px-6 py-3 mt-8 transition-all border-2 rounded-lg border-violet-700 text-violet-700 hover:bg-violet-700 hover:text-white font-sub'
 			>
 				Get Started

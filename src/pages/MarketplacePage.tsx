@@ -7,25 +7,39 @@ import {RiArrowDropDownFill} from 'react-icons/ri'
 import {Link, useParams} from 'react-router-dom'
 import {assetsData} from '../data/asset.data'
 import {categoriesData} from '../data/categories.data'
-import {marketplaceNavData} from '../data/marketplace-nav.data'
 import {supportedPlatformsData} from '../data/supportedPlatforms.data'
 import useClickOutside from '../hooks/useClickOutside'
+import {IAsset} from '../types/IAsset'
 
 const MarketplacePage = () => {
-	const {category} = useParams()
 	const [minMaxValue, setMinMaxValue] = useState<[number, number]>([10, 1000])
 	const [keywords, setKeywords] = useState<string[]>([])
 	const [keywordValue, setKeywordValue] = useState<string>('')
 	const [platforms, setPlatforms] = useState<string[]>([])
 	const [isContext, setIsContext] = useState<boolean>(false)
+	const [category, setCategory] = useState<string | null>(null)
+	const [isPopularity, setIsPopularity] = useState<boolean>(false)
+	const [data, setData] = useState<IAsset[]>(assetsData)
 
 	const ref = useRef<HTMLUListElement>(null)
 
-	// const params = useParams()
+	const params = useParams()
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
-	}, [])
+		setCategory(params.categoryName || null)
+		setIsPopularity(params.category === 'popularity')
+	}, [params])
+
+	useEffect(() => {
+		if (isPopularity) {
+			console.log(isPopularity)
+			const sortedArray = data.sort((a, b) => a.likesCount - b.likesCount)
+			setData(sortedArray)
+		}
+	}, [isPopularity])
+
+	// console.log(data)
 
 	// Max price slider change handler
 	const handleChange = (_: Event, newValue: number | number[]) => {
@@ -91,57 +105,47 @@ const MarketplacePage = () => {
 				</h3>
 				<nav>
 					<ul className='relative flex' ref={ref}>
-						{marketplaceNavData.map(link =>
-							link !== 'Categories' ? (
-								<li key={link} className='font-semibold list-none'>
-									<Link
-										to={`/marketplace/${
-											link === 'Home' ? '' : link.toLowerCase()
-										}`}
-									>
-										{link}
-									</Link>
-								</li>
-							) : (
-								<>
-									<li
-										key={link + ' context'}
-										className='flex items-center relative font-semibold text-[#976ef6] list-none cursor-pointer'
-										onClick={() => setIsContext(prev => !prev)}
-									>
-										{link}
-										<RiArrowDropDownFill className='text-xl text-[#976ef6]' />
-										{isContext && (
-											<ul className='absolute right-0 top-9'>
-												{categoriesData.map(category => (
-													<li
-														key={category}
-														className='py-3 px-5 font-normal text-gray-200 list-none transition-all bg-opacity-80 border-gray-500 cursor-pointer bg-[#291540] hover:bg-opacity-70'
-													>
-														<Link
-															to={`/marketplace/${link.toLowerCase()}/${category.toLowerCase()}`}
-														>
-															{category}
-														</Link>
-													</li>
-												))}
-											</ul>
-										)}
-									</li>
-								</>
-							)
-						)}
+						<li className='font-semibold list-none'>
+							<Link to={`/marketplace/all`}>All</Link>
+						</li>
+						<li className='font-semibold list-none'>
+							<Link to={`/marketplace/popularity`}>Popularity</Link>
+						</li>
+						<li
+							className='flex items-center relative font-semibold text-[#976ef6] list-none cursor-pointer'
+							onClick={() => setIsContext(prev => !prev)}
+						>
+							Categories
+							<RiArrowDropDownFill className='text-xl text-[#976ef6]' />
+							{isContext && (
+								<ul className='absolute right-0 top-9'>
+									{categoriesData.map(category => (
+										<li
+											key={category}
+											className='py-3 px-5 font-normal text-gray-200 list-none transition-all bg-opacity-80 border-gray-500 cursor-pointer bg-[#291540] hover:bg-opacity-70'
+										>
+											<Link
+												to={`/marketplace/categories/${category.toLowerCase()}`}
+											>
+												{category}
+											</Link>
+										</li>
+									))}
+								</ul>
+							)}
+						</li>
 					</ul>
 				</nav>
 			</section>
 			<section className='flex gap-3 px-2 mt-4'>
 				<div className='grid grid-cols-4 gap-4 flex-[4]'>
-					{assetsData.map(
+					{data.map(
 						asset =>
 							asset.price >= minMaxValue[0] &&
 							asset.price <= minMaxValue[1] &&
 							isMatchedByKeywords(keywords, asset.keywords) &&
-							isMatchedByKeywords(platforms, asset.platforms) && (
+							isMatchedByKeywords(platforms, asset.platforms) &&
+							(category === asset.category?.toLowerCase() || !category) && (
 								<div
 									key={asset.id}
 									className='p-2 overflow-hidden rounded-sm bg-[#262626] hover:bg-[#333333] transition-all max-h-[26.25rem]'

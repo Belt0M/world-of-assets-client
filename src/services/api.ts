@@ -42,4 +42,8 @@ export const api = createApi({
 	}),
 })
 
-export const {useCreateUserMutation} = api
+export const {
+	useCreateUserMutation,
+	useCurrentUserQuery,
+	useLoginUserMutation,
+} = api

@@ -1,8 +1,10 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { authSlice, storeTokenOnLogin } from './reducers/AuthSlice'
+import {combineReducers, configureStore} from '@reduxjs/toolkit'
+import {api} from '../services/api'
+import {authSlice, storeTokenOnLogin} from './reducers/AuthSlice'
 
 // Combine all reducers
 const rootReducer = combineReducers({
+	[api.reducerPath]: api.reducer,
 	[authSlice.name]: authSlice.reducer,
 })
 
@@ -10,7 +12,9 @@ const rootReducer = combineReducers({
 export const store = configureStore({
 	reducer: rootReducer,
 	middleware: getDefaultMiddleware =>
-		getDefaultMiddleware().concat(storeTokenOnLogin.middleware),
+		getDefaultMiddleware({serializableCheck: false})
+			.concat(api.middleware)
+			.concat(storeTokenOnLogin.middleware),
 	// .concat(booksApi.middleware),
 })
 

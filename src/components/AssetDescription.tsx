@@ -1,15 +1,15 @@
-import { FC, useMemo, useState } from 'react'
-import { FaStar } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
-import { IAsset } from '../types/IAsset'
-import { formatIsoDate } from '../utils/formatIsoDate.util'
+import {FC, useMemo, useState} from 'react'
+import {FaStar} from 'react-icons/fa'
+import {Link} from 'react-router-dom'
+import {IAsset} from '../types/IAsset'
+import {formatIsoDate} from '../utils/formatIsoDate.util'
 import AssetBuySection from './AssetBuySection'
 
 interface Props {
 	asset: IAsset
 }
 
-const AssetDescription: FC<Props> = ({ asset }) => {
+const AssetDescription: FC<Props> = ({asset}) => {
 	const {
 		likesCount,
 		price,
@@ -22,7 +22,7 @@ const AssetDescription: FC<Props> = ({ asset }) => {
 		reviews,
 	} = asset
 	const [isRatingModal, setIsRatingModal] = useState<boolean>(false)
-	isRatingModal && console.log('m', likesCount)
+
 	const formattedData = useMemo(
 		() => formatIsoDate(data_modified!),
 		[data_modified]
@@ -69,8 +69,8 @@ const AssetDescription: FC<Props> = ({ asset }) => {
 								<FaStar key={index} />
 							))}
 					</span>
-					<span className='text-xs mt-0.5'>
-						2 review{reviews?.length > 1 && 's'} written
+					<span className='text-xs'>
+						2 review{reviews!.length > 1 && 's'} written
 					</span>
 					{/* Rating context, will be later */}
 					{/* <div className='fixed rounded-md rounded-tl-none shadow-md mt-7 h-44 w-72 bg-secondary brightness-125'></div> */}
